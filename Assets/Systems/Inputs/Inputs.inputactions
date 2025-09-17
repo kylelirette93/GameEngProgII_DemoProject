@@ -30,13 +30,22 @@
                     "id": "e85594bc-c724-44d4-941d-53dee6eadab1",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "MultiTap",
                     "initialStateCheck": false
                 },
                 {
                     "name": "Sprint",
                     "type": "Button",
                     "id": "d6fb77bc-3769-43bd-95b2-8c73f1f784a6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "c3074ebe-b3b0-48eb-a498-15e76ed230ed",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -129,6 +138,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47b4adc9-09b9-4cc1-bae8-7f85a67a1fed",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -23,14 +23,9 @@ public class InputManager : MonoBehaviour, Inputs.IPlayerActions
 
     public event Action<Vector2> MoveInputEvent;
     public event Action<Vector2> LookInputEvent;
-
-    public event Action JumpStartedInputEvent;
-    public event Action JumpPerformedInputEvent;
-    public event Action JumpCanceledInputEvent;
-
-    public event Action SprintStartedInputEvent;
-    public event Action SprintPerformedInputEvent;
-    public event Action SprintCanceledInputEvent;
+    public event Action<InputAction.CallbackContext> JumpInputEvent;
+    public event Action<InputAction.CallbackContext> SprintInputEvent;
+    public event Action<InputAction.CallbackContext> CrouchInputEvent;
 
     #endregion
 
@@ -63,15 +58,16 @@ public class InputManager : MonoBehaviour, Inputs.IPlayerActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started) JumpStartedInputEvent?.Invoke();
-        if (context.performed) JumpPerformedInputEvent?.Invoke();
-        if (context.canceled) JumpCanceledInputEvent?.Invoke();
+        JumpInputEvent?.Invoke(context);
     }
 
     public void OnSprint(InputAction.CallbackContext context)
     {
-        if (context.started) SprintStartedInputEvent?.Invoke();
-        if (context.performed) SprintPerformedInputEvent?.Invoke();
-        if (context.canceled) SprintCanceledInputEvent?.Invoke();
+        SprintInputEvent?.Invoke(context);
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        CrouchInputEvent?.Invoke(context);
     }
 }
