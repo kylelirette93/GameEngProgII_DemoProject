@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &263538497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263538498}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263538498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263538497}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.28375426, y: 10, z: -9.844453}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,7 +649,7 @@ Transform:
   m_GameObject: {fileID: 910533627}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -0.48, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -643,10 +674,18 @@ MonoBehaviour:
   verticalSensitivity: 1
   upperLookLimit: 60
   lowerLookLimit: -60
+  isGrounded: 0
+  gravity: 30
+  jumpHeight: 2
+  crouchingHeight: 1
+  crouchingCenter: {x: 0, y: 0.5, z: 0}
+  crouchingCamY: 0.75
+  spawnPosition: {fileID: 263538498}
   lookEnabled: 1
   moveEnabled: 1
   jumpEnabled: 1
   sprintEnabled: 1
+  crouchEnabled: 1
 --- !u!143 &910533630
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1155,3 +1194,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1552349437}
   - {fileID: 1448287233}
+  - {fileID: 263538498}
