@@ -7,8 +7,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("Manager References")]
-    public InputManager inputManager;
+    [Header("Manager References (Auto-Assigned)")]
+    [SerializeField] private InputManager inputManager;
+    [SerializeField] private GameStateManager gameStateManager;
+    [SerializeField] private PlayerController playerController;
+
+    // public read-only accessors for other scripts to use the managers
+    public InputManager InputManager => inputManager;
+    public GameStateManager GameStateManager => gameStateManager;
+    public PlayerController PlayerController => playerController;
 
     void Awake()
     {
@@ -24,7 +31,9 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
-        // Assign a reference ot input manager if it doesnt exist.
-        if (inputManager == null) inputManager = GetComponentInChildren<InputManager>();
+        // Auto-assign manager references if not set in inspector
+        inputManager ??= GetComponentInChildren<InputManager>();
+        gameStateManager ??= GetComponentInChildren<GameStateManager>();
+        playerController ??= GetComponentInChildren<PlayerController>();
     }
 }
