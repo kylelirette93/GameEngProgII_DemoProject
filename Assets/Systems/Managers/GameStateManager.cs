@@ -12,10 +12,12 @@ public class GameStateManager : MonoBehaviour
     // Instantiate game states.
     private GameState_MainMenu gameState_MainMenu = GameState_MainMenu.Instance;
     private GameState_Gameplay gameState_Gameplay = GameState_Gameplay.Instance;
+    private GameState_Paused gameState_Paused = GameState_Paused.Instance;
+    private GameState_GameOver gameState_GameOver = GameState_GameOver.Instance;
 
     private void Start()
     {
-        currentState = gameState_Gameplay;
+        currentState = gameState_MainMenu;
         currentState.EnterState();
         currentActiveState = currentState.ToString();
     }
@@ -49,4 +51,37 @@ public class GameStateManager : MonoBehaviour
         currentActiveState = currentState.ToString();
         currentState.EnterState();
     }
+
+    #region Button Call Methods
+
+    public void GameOver()
+    {
+        SwitchToState(gameState_GameOver);
+    }
+    public void PlayGame()
+    {
+        SwitchToState(gameState_Gameplay);
+    }
+    public void Pause()
+    {        
+        if (currentState == gameState_Gameplay) 
+            SwitchToState(gameState_Paused);
+    }
+
+    public void Resume()
+    {
+        if (currentState == gameState_Paused) 
+            SwitchToState(gameState_Gameplay);
+    }
+
+    public void MainMenu()
+    {
+        SwitchToState(gameState_MainMenu);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    #endregion
 }

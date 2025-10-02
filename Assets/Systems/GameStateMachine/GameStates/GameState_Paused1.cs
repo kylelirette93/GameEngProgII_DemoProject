@@ -1,27 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameState_MainMenu : IState
+public class GameState_GameOver : IState
 {
     GameManager gameManager => GameManager.Instance;
     GameStateManager gameStateManager => GameManager.Instance.GameStateManager;
 
-    UIManager uiManager => GameManager.Instance.UIManager;
+    UIManager uIManager => GameManager.Instance.UIManager;
 
     #region Singleton Instance
     // A single, readonly instance of the atate class is created.
     // The 'readonly' keyword ensures this instance cannot be modified after initialization.
-    private static readonly GameState_MainMenu instance = new GameState_MainMenu();
+    private static readonly GameState_GameOver instance = new GameState_GameOver();
 
     // Provides global access to the singleton instance of this state.
     // Uses an expression-bodied property to return the static _instance variable.
-    public static GameState_MainMenu Instance = instance;
+    public static GameState_GameOver Instance = instance;
     #endregion
     public void EnterState()
     {
-        Debug.Log("Entered Main Menu State");
-        uiManager.EnableMainMenu();
-        uiManager.EnableCursor();
+        Time.timeScale = 0f;
+        Debug.Log("Entered Game Over State");
+        uIManager.EnableGameOverMenu();
+        uIManager.EnableCursor();
     }
 
     public void FixedUpdateState()
@@ -30,7 +31,7 @@ public class GameState_MainMenu : IState
     }
     public void UpdateState()
     {
- 
+      
     }
 
     public void LateUpdateState()

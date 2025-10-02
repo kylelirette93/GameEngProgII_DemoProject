@@ -1,5 +1,3 @@
-
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +7,8 @@ public class GameState_Gameplay : IState
     GameStateManager gameStateManager => GameManager.Instance.GameStateManager;
     PlayerController playerController => GameManager.Instance.PlayerController;
 
+    UIManager uiManager => GameManager.Instance.UIManager;
+
     #region Singleton Instance
     private static readonly GameState_Gameplay instance = new GameState_Gameplay();
 
@@ -17,7 +17,10 @@ public class GameState_Gameplay : IState
     #endregion
     public void EnterState()
     {
+        Time.timeScale = 1f;
         Debug.Log("Entered Gameplay State");
+        uiManager.EnableGameplayUI();
+        uiManager.DisableCursor();
     }
 
     public void FixedUpdateState()
@@ -28,9 +31,10 @@ public class GameState_Gameplay : IState
     {
         playerController.HandlePlayerMovement();
         Debug.Log("Running gameplay update state.");
+
         if (Keyboard.current[Key.P].wasPressedThisFrame)
         {
-            gameStateManager.SwitchToState(GameState_MainMenu.Instance);
+            gameStateManager.Pause();
         }
     }
 
