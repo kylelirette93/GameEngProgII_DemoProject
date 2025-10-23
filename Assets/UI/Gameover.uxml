@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Menu_USS.uss?fileID=7433441132597879392&amp;guid=f7fbf9a483fe49640b81123242c1230b&amp;type=3#Menu_USS" />
+    <ui:VisualElement style="flex-grow: 1; opacity: 1; position: relative; -unity-text-align: upper-left; background-position-x: center 0; align-content: flex-start; align-self: auto; justify-content: flex-start;">
+        <ui:Label text="~ Game Over ~" class="title-label" style="position: relative; opacity: 1; justify-content: flex-start; align-self: auto; font-size: 72px; -unity-text-align: upper-center;" />
+        <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; align-items: center; font-size: 48px; justify-content: center; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;">
+            <ui:Button text="Restart" name="Restart" class="menu-button" />
+            <ui:Button text="Quit Game" name="Quit" class="menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
