@@ -60,6 +60,7 @@ public class GameStateManager : MonoBehaviour
     }
     public void PlayGame()
     {
+        GameManager.Instance.LevelManager.ChangeScene("Level01", "SpawnPoint");
         SwitchToState(gameState_Gameplay);
     }
     public void Pause()
@@ -76,6 +77,7 @@ public class GameStateManager : MonoBehaviour
 
     public void MainMenu()
     {
+        GameManager.Instance.LevelManager.ChangeScene("MainMenu");
         SwitchToState(gameState_MainMenu);
     }
 

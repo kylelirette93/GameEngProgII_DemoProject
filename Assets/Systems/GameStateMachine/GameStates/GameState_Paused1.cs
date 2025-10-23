@@ -40,7 +40,7 @@ public class GameState_GameOver : IState
     }
     public void ExitState()
     {
-
+        Time.timeScale = 1f;
     }
 
 }
