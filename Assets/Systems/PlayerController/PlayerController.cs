@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     // References.
     CharacterController controller;
+    public Transform CameraRoot => cameraRoot;
     Transform cameraRoot;
 
     [Header("Movement Settings")]

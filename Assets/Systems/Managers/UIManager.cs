@@ -63,7 +63,10 @@ public class UIManager : MonoBehaviour
         /*Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;*/
     }
-
+    public void ShowInteractionPrompt(string text)
+    {
+        gameplayUI.rootVisualElement.Q<Label>("InteractionPrompt").text = text;
+    }
     private UIDocument FindUIDocument(string name)
     {
         var documents = Object.FindObjectsByType<UIDocument>(FindObjectsInactive.Include, FindObjectsSortMode.None);
