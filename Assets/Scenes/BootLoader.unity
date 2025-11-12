@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5272273034803339433, guid: 949ad5a8e819d934197ccc41aa8a8ba5, type: 3}
+      propertyPath: m_Name
+      value: Loading
+      objectReference: {fileID: 0}
     - target: {fileID: 5543648554997976936, guid: 949ad5a8e819d934197ccc41aa8a8ba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -174,7 +178,7 @@ PrefabInstance:
     - target: {fileID: 9206920279389516885, guid: 949ad5a8e819d934197ccc41aa8a8ba5, type: 3}
       propertyPath: loadingUI
       value: 
-      objectReference: {fileID: 1040908769}
+      objectReference: {fileID: 0}
     - target: {fileID: 9206920279389516885, guid: 949ad5a8e819d934197ccc41aa8a8ba5, type: 3}
       propertyPath: loadingController
       value: 
@@ -237,17 +241,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c26e7a7147be1b84c851204b6fb150af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1040908769 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3453676105240352482, guid: 949ad5a8e819d934197ccc41aa8a8ba5, type: 3}
-  m_PrefabInstance: {fileID: 191451926}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807

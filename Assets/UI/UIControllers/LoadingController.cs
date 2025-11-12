@@ -5,12 +5,6 @@ public class LoadingController : MonoBehaviour
 {
     UIDocument loadingDoc => GetComponent<UIDocument>();
 
-    GameManager gameManager => GameManager.Instance;
-    UIManager uiManager => GameManager.Instance.UIManager;
-
-    GameStateManager gameStateManager => GameManager.Instance.GameStateManager;
-    LevelManager levelManager => GameManager.Instance.LevelManager;
-
     private ProgressBar progressBar;
    
 

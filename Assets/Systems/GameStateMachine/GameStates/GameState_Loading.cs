@@ -17,9 +17,10 @@ public class GameState_Loading : IState
     #endregion
     public void EnterState()
     {
+        Debug.Log("Entered game state loading.");
+        uiManager.EnableLoadingMenu();
         Cursor.visible = false;
-        Time.timeScale = 0f;
-
+        Time.timeScale = 1f;
     }
 
     public void FixedUpdateState()
