@@ -5,17 +5,26 @@ public class UIManager : MonoBehaviour
 {
     [Header("UI Menu Objects")]
     [SerializeField] private UIDocument mainMenuUI;
+    [SerializeField] private UIDocument loadingUI;
     [SerializeField] private UIDocument gameplayUI;
     [SerializeField] private UIDocument pauseUI;
     [SerializeField] private UIDocument gameoverUI;
 
+    // public accessor for loading screen controller.
+    public LoadingController loadingController;
+
+
     private void Awake()
     {
+        loadingUI = FindUIDocument("Loading");
         mainMenuUI = FindUIDocument("MainMenu");
         gameplayUI = FindUIDocument("Gameplay");
         pauseUI = FindUIDocument("PauseMenu");
         gameoverUI = FindUIDocument("Gameover");
 
+        loadingController = loadingUI.GetComponent<LoadingController>();
+
+        if (loadingUI != null) loadingUI.gameObject.SetActive(true);
         if (mainMenuUI != null) mainMenuUI.gameObject.SetActive(true);
         if (gameplayUI != null) gameplayUI.gameObject.SetActive(true);
         if (pauseUI != null) pauseUI.gameObject.SetActive(true);
@@ -25,6 +34,7 @@ public class UIManager : MonoBehaviour
     public void DisableAllMenuUI()
     {
         mainMenuUI.rootVisualElement.style.display = DisplayStyle.None;
+        loadingUI.rootVisualElement.style.display = DisplayStyle.None;
         gameplayUI.rootVisualElement.style.display = DisplayStyle.None;
         pauseUI.rootVisualElement.style.display = DisplayStyle.None;
         gameoverUI.rootVisualElement.style.display = DisplayStyle.None;
@@ -34,6 +44,12 @@ public class UIManager : MonoBehaviour
     {
         DisableAllMenuUI();
         gameoverUI.rootVisualElement.style.display = DisplayStyle.Flex;
+    }
+
+    public void EnableLoadingMenu()
+    {
+        DisableAllMenuUI();
+        loadingUI.rootVisualElement.style.display = DisplayStyle.Flex;
     }
 
     public void EnableMainMenu()

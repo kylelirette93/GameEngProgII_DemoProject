@@ -18,7 +18,7 @@ public class GameState_Gameplay : IState
     public void EnterState()
     {
         Time.timeScale = 1f;
-        Debug.Log("Entered Gameplay State");
+        //Debug.Log("Entered Gameplay State");
         uiManager.EnableGameplayUI();
         uiManager.DisableCursor();
     }
@@ -30,7 +30,7 @@ public class GameState_Gameplay : IState
     public void UpdateState()
     {
         playerController.HandlePlayerMovement();
-        Debug.Log("Running gameplay update state.");
+        //Debug.Log("Running gameplay update state.");
 
         if (Keyboard.current[Key.P].wasPressedThisFrame)
         {

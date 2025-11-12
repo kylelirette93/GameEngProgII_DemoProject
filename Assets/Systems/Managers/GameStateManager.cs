@@ -11,14 +11,16 @@ public class GameStateManager : MonoBehaviour
     private IState lastState;
 
     // Instantiate game states.
+    private GameState_Bootload gameState_Bootload = GameState_Bootload.Instance;
     private GameState_MainMenu gameState_MainMenu = GameState_MainMenu.Instance;
     private GameState_Gameplay gameState_Gameplay = GameState_Gameplay.Instance;
     private GameState_Paused gameState_Paused = GameState_Paused.Instance;
     private GameState_GameOver gameState_GameOver = GameState_GameOver.Instance;
+    private GameState_Loading gameState_Loading = GameState_Loading.Instance;
 
     private void Start()
     {
-        currentState = gameState_MainMenu;
+        currentState = gameState_Bootload;
         currentState.EnterState();
         currentActiveState = currentState.ToString();
     }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +9,31 @@ public class LevelManager : MonoBehaviour
 
     public void ChangeScene(string sceneName, string spawnPoint)
     {
+        LoadSceneAsync(SceneManager.GetSceneByName(sceneName).buildIndex);
         // Set spawn point to the one passed in by trigger.
         _spawnPoint = spawnPoint;
         // Subscribe to the sceneLoaded event
         SceneManager.sceneLoaded += OnSceneLoaded;
+
         // Begin loading the scene.
         SceneManager.LoadScene(sceneName);
-
     }
+
+    IEnumerator LoadSceneAsync(int sceneId)
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        GameManager.Instance.GameStateManager.SwitchToState(GameState_Loading.Instance);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneId);
+
+        while (asyncLoad.isDone == false)
+        {
+            float progressValue = Mathf.Clamp01(asyncLoad.progress / 0.9f);
+            GameManager.Instance.UIManager.loadingController.UpdateProgressBar(progressValue);
+            yield return null;
+        }
+    }
+
 
     public void ChangeScene(string sceneName)
     {
@@ -29,9 +47,8 @@ public class LevelManager : MonoBehaviour
         // Find the spawn point object based on the name passed in
         Transform spawn = GameObject.Find(_spawnPoint).transform;
 
-        // Move the player to the spawn point.
-        player.position = spawn.position;
-        player.rotation = spawn.rotation;
+        PlayerController pc = player.GetComponent<PlayerController>();
+        pc.MovePlayerToSpawnPoint(spawn);
 
         // Remove the listener to avoid duplicate calls.
         SceneManager.sceneLoaded -= OnSceneLoaded;

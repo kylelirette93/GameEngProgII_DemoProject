@@ -568,6 +568,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   uiManager: {fileID: 0}
   levelManager: {fileID: 0}
+  interactionManager: {fileID: 0}
 --- !u!1 &757867142593744334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1559,7 @@ GameObject:
   - component: {fileID: 5347478113739902231}
   - component: {fileID: 2966192012193955626}
   - component: {fileID: 2044540716999397466}
+  - component: {fileID: 8681751512314072972}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1638,6 +1640,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &8681751512314072972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982698812605356935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5398a532815c3241820c54fe1409a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 3
 --- !u!1 &3290729061847902374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,6 +2313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5398a532815c3241820c54fe1409a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 3
 --- !u!1 &4935854262656852929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,6 +2450,70 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &5272273034803339433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204539884834526097}
+  - component: {fileID: 3453676105240352482}
+  - component: {fileID: 2707481171179449983}
+  m_Layer: 0
+  m_Name: LoadingScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1204539884834526097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272273034803339433}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5993575704549598144}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3453676105240352482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272273034803339433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: cedc56e362f4021488cc6e890bced10f, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 43ca22e600c19dc4399948682c674dc2, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!114 &2707481171179449983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5272273034803339433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26e7a7147be1b84c851204b6fb150af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5351069365349564243
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,6 +3639,7 @@ Transform:
   - {fileID: 2407127234221836879}
   - {fileID: 8631535348873689490}
   - {fileID: 6176162886909745692}
+  - {fileID: 1204539884834526097}
   m_Father: {fileID: 5543648554997976936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9206920279389516885
@@ -3574,9 +3655,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuUI: {fileID: 7263183334094339436}
+  loadingUI: {fileID: 0}
   gameplayUI: {fileID: 3377611320524186290}
   pauseUI: {fileID: 2516737118002022216}
   gameoverUI: {fileID: 7721799606260316780}
+  loadingController: {fileID: 0}
 --- !u!1 &8936989086302658711
 GameObject:
   m_ObjectHideFlags: 0

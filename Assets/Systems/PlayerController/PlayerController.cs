@@ -402,6 +402,16 @@ public class PlayerController : MonoBehaviour
         // If no obstruction found, can stand at full height.
         return standingHeight;
     }
+
+    public void MovePlayerToSpawnpoint(Transform spawnPosition)
+    {
+        controller.enabled = false;
+        transform.position = spawnPosition.position;
+        transform.rotation = spawnPosition.rotation;
+        transform.eulerAngles = spawnPosition.eulerAngles;
+        cameraRoot.localEulerAngles = spawnPosition.localEulerAngles;
+        controller.enabled = true;
+    }
     private void OnDestroy()
     {
         inputManager.MoveInputEvent -= GetMovementInput;
